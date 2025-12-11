@@ -32,7 +32,7 @@ body {
     transition: opacity 0.3s ease;
     background: linear-gradient(
         to bottom,
-        rgb(0, 0, 0),
+        rgb(0, 0, 0, 1),
         rgba(0, 0, 0, 0)
     );
     opacity: 1;
@@ -93,7 +93,7 @@ nav img {
 
 .header {
     position: relative;
-    background-image: url('https://static1.srcdn.com/wordpress/wp-content/uploads/2023/02/kerbal-space-program-2-2.jpg');
+    background-image: url("lasu_banner-no-logo.png");
     height: 100vh;
     background-size: cover;
     background-position: center;
