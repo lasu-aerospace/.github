@@ -1,4 +1,4 @@
-![LASU's Banner](banner.png)
+![LASU's Banner](/banner.png)
 
 LASU emerge como con una misión clara: posicionar a Latinoamérica como actor serio, riguroso y visionario en la ciencia y la tecnología aeroespacial, compartiendo nuestros aprendizajes en ciencia detrás de la ingeniería y viceversa, con la misma filosofía: La planificación y la redundancia son claves.
 
