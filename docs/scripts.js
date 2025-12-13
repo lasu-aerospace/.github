@@ -1,27 +1,26 @@
 <script>
-    let lastScrollPosition = 0;
-    const navbar1 = document.getElementById('navbar');
+    function updateNavbarMode() {
+        const ratio = window.innerWidth / window.innerHeight;
 
-    window.addEventListener('scroll', () => {
-        const currentScrollPosition = window.pageYOffset;
-
-        if (currentScrollPosition > lastScrollPosition) {
-            // El usuario está desplazándose hacia abajo
-            navbar1.classList.add('hidden');
+        if (ratio <= 4 / 3) {
+            document.body.classList.add("compact-nav");
         } else {
-            // El usuario está desplazándose hacia arriba
-            navbar1.classList.remove('hidden');
+            document.body.classList.remove("compact-nav", "menu-open");
         }
+    }
 
-        lastScrollPosition = currentScrollPosition;
+    const menuBtn = document.getElementById("menuBtn");
+    const overlay = document.getElementById("overlay");
+
+    menuBtn.addEventListener("click", () => {
+        document.body.classList.toggle("menu-open");
     });
 
-    const navbar2 = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 0) {
-            navbar2.classList.remove('scrolled');
-        } else {
-            navbar2.classList.add('scrolled');
-        };
+    overlay.addEventListener("click", () => {
+        document.body.classList.remove("menu-open");
     });
+
+    window.addEventListener("resize", updateNavbarMode);
+    window.addEventListener("load", updateNavbarMode);
+
 </script>

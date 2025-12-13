@@ -1,27 +1,46 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LASU | Inicio</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <header class="header">
-            <nav class="navbar" style="background-color: transparent;" id="navbar">
-                <img src=LASU_logo.png alt="LASU Logo">
-                <div class="menu">
-                    <a href="https://lasu-aerospace.github.io/LRL/">LRL</a>
-                    <a href="https://github.com/lasu-aerospace">GitHub</a>
-                    <a href="launches.html">Lanzamientos</a>
-                    <a href="about.html">Sobre nosotros</a>
-                    <a href="contact.html">Contacto</a>
-                </div>
-            </nav>
-            <div class="text fade-up">
-                <p style="font-size: 40px; font-weight: 700; padding-bottom: 10%;">TLV1</p>
-                <a href="nl.html"><button style="top: -50px" class="button fill-button" type="button">Más información</button></a>
-            </div>
-        </header>
-        <script src="script.js"></script>
-    </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LASU | Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <!-- NAVBAR NORMAL -->
+    <nav class="navbar" id="navbar-normal">
+        <img src="LASU_logo.png" alt="LASU Logo">
+        <div class="menu">
+            <a href="#">LRL</a>
+            <a href="#">GitHub</a>
+            <a href="#">Lanzamientos</a>
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- BOTÓN HAMBURGUESA -->
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- MENÚ COMPACTO -->
+    <aside class="menu-container" id="menuCompact">
+        <img src="LASU_logo.png" alt="LASU Logo">
+        <a href="#">LRL</a>
+        <a href="#">GitHub</a>
+        <a href="#">Lanzamientos</a>
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Contacto</a>
+    </aside>
+
+    <div class="overlay" id="overlay"></div>
+</header>
+
+<script src="scripts.js"></script>
+</body>
 </html>
