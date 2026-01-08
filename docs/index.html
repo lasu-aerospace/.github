@@ -8,39 +8,39 @@
 </head>
 <body>
 
-<header>
-    <!-- NAVBAR NORMAL -->
-    <nav class="navbar" id="navbar-normal">
-        <img src="LASU_logo.png" alt="LASU Logo">
-        <div class="menu">
+<header class="header">
+
+    <nav class="navbar">
+        <img src="LASU_logo.png" alt="LASU Logo" class="logo">
+
+        <!-- Menú desktop -->
+        <div class="menu-desktop">
             <a href="#">LRL</a>
             <a href="#">GitHub</a>
             <a href="#">Lanzamientos</a>
             <a href="#">Sobre nosotros</a>
             <a href="#">Contacto</a>
         </div>
+
+        <!-- Botón hamburguesa -->
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
-    <!-- BOTÓN HAMBURGUESA -->
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- MENÚ COMPACTO -->
-    <aside class="menu-container" id="menuCompact">
-        <img src="LASU_logo.png" alt="LASU Logo">
-        <a href="#">LRL</a>
+    <!-- Menú móvil -->
+    <aside class="menu-mobile" id="menuMobile">
+        <a href="#">Investigaciones</a>
+        <a href="#">LASU</a>
         <a href="#">GitHub</a>
-        <a href="#">Lanzamientos</a>
-        <a href="#">Sobre nosotros</a>
-        <a href="#">Contacto</a>
     </aside>
 
     <div class="overlay" id="overlay"></div>
+
 </header>
 
-<script src="scripts.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

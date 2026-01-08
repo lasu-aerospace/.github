@@ -1,19 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
+/* RESET MÍNIMO */
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Montserrat, sans-serif;
+    font-family: Inter, sans-serif;
     background: black;
     color: white;
+    overflow-x: hidden;
 }
 
-/* =========================
-   NAVBAR NORMAL
-   ========================= */
+/* ================= NAVBAR ================= */
 
 .navbar {
     position: fixed;
@@ -24,102 +22,142 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(0,0,0,0.9);
-    z-index: 10;
+    background: linear-gradient(to bottom, black, transparent);
+    z-index: 1000;
 }
 
-.navbar img {
+.logo {
     width: 100px;
 }
 
-.menu {
+/* Desktop menu */
+.menu-desktop {
     display: flex;
     gap: 20px;
 }
 
-.menu a {
+.menu-desktop a {
     color: white;
     text-decoration: none;
-    font-size: 0.95rem;
+    position: relative;
 }
 
-/* =========================
-   MENÚ COMPACTO
-   ========================= */
+.menu-desktop a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: width 0.3s;
+}
+
+.menu-desktop a:hover::after {
+    width: 100%;
+}
+
+/* ================= HAMBURGER ================= */
 
 .menu-btn {
-    position: fixed;
-    top: 15px;
-    right: 20px;
-    width: 30px;
-    height: 22px;
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
-    display: none;
-    z-index: 21;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .menu-btn span {
-    display: block;
-    height: 3px;
+    width: 24px;
+    height: 1px;
     background: white;
-    margin: 4px 0;
 }
 
-.menu-container {
+/* ================= MOBILE MENU ================= */
+
+.menu-mobile {
     position: fixed;
     top: 0;
-    right: -260px;
+    left: -260px;
     width: 260px;
     height: 100vh;
-    background: #000;
-    padding: 20px;
+    background: rgba(0,0,0,0.95);
+    padding: 80px 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    transition: right 0.3s ease;
-    z-index: 20;
+    gap: 20px;
+    transition: left 0.25s ease;
+    z-index: 1200;
 }
 
-.menu-container img {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-.menu-container a {
+.menu-mobile a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 18px;
 }
 
+/* Overlay */
 .overlay {
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.5);
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 15;
+    visibility: hidden;
+    transition: opacity 0.25s;
+    z-index: 1100;
 }
 
-/* =========================
-   ESTADO COMPACTO
-   ========================= */
+/* ================= STATE ================= */
 
-body.compact-nav #navbar-normal {
-    display: none;
-}
-
-body.compact-nav .menu-btn {
-    display: block;
-}
-
-body.menu-open .menu-container {
-    right: 0;
+body.menu-open .menu-mobile {
+    left: 0;
 }
 
 body.menu-open .overlay {
     opacity: 1;
+    visibility: visible;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Móvil y tablets verticales */
+@media (max-width: 900px), (orientation: portrait) {
+    .menu-desktop {
+        display: none;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1300; /* por encima del overlay */
+}
+
+.menu-btn span {
+    display: block;        /* ← ESTA ES LA CLAVE */
+    width: 24px;
+    height: 2px;
+    background: white;
+}
+
+.menu-btn {
     pointer-events: auto;
 }
+
+.overlay {
+    z-index: 1100;
+}
+
+.menu-mobile {
+    z-index: 1200;
+}
+
