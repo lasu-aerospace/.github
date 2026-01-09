@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LASU | Inicio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LASU | Inicio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+
+<body style="height: 100vh; background-position: center top; background-image: url(lasu_banner-no-logo.png);">
 
 <header class="header">
-
-    <nav class="navbar">
-        <img src="LASU_logo.png" alt="LASU Logo" class="logo">
-
-        <!-- Menú desktop -->
-        <div class="menu-desktop">
-            <a href="#">LRL</a>
-            <a href="#">GitHub</a>
-            <a href="#">Lanzamientos</a>
-            <a href="#">Sobre nosotros</a>
-            <a href="#">Contacto</a>
-        </div>
-
-        <!-- Botón hamburguesa -->
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
-
-    <!-- Menú móvil -->
-    <aside class="menu-mobile" id="menuMobile">
-        <a href="#">Investigaciones</a>
-        <a href="#">LASU</a>
-        <a href="#">GitHub</a>
-    </aside>
-
-    <div class="overlay" id="overlay"></div>
-
+  <nav class="navbar">
+    <img src="LASU_logo.png" alt="LASU Logo" class="logo">
+    <div class="menu-desktop">
+      <a href="#">LRL</a>
+      <a href="#">GitHub</a>
+      <a href="#">Lanzamientos</a>
+      <a href="#">Sobre nosotros</a>
+      <a href="#">Contacto</a>
+    </div>
+  </nav>
 </header>
+<!-- Menú móvil -->
+<aside class="menu-mobile" id="menuMobile">
+  <a href="#">LRL</a>
+  <a href="#">GitHub</a>
+  <a href="#">Lanzamientos</a>
+  <a href="#">Sobre nosotros</a>
+  <a href="#">Contacto</a>
+</aside>
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+<!-- UI ROOT -->
+<div id="ui-root">
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+<main class="content">
+  <!-- contenido -->
+</main>
 
 <script src="script.js"></script>
+<script src="overlay.js"></script>
 </body>
 </html>
+
+<!---
+1. Animación de fading para el botón de siguiente lanzamiento
+2. Logo de web en pestaña
+3. 

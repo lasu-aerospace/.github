@@ -1,163 +1,253 @@
-/* RESET MÍNIMO */
-* {
-    box-sizing: border-box;
+/* ================= RESET ================= */
+* { box-sizing: border-box; }
+
+:root{
+  --navbar-h: 60px;
+  --menu-width: 260px;
+  --accent: #ffffff;
+  --menu-bg: rgba(120,120,120,0.85);
+  --overlay-bg: rgba(0,0,0,0.5);
+  --blur-level: 6px;
 }
 
 body {
-    margin: 0;
-    font-family: Inter, sans-serif;
-    background: black;
-    color: white;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
 }
 
 /* ================= NAVBAR ================= */
-
 .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(to bottom, black, transparent);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-h);
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(to bottom, black, transparent);
+  z-index: 1000;
 }
 
-.logo {
-    width: 100px;
-}
+.logo { width: 100px; }
 
-/* Desktop menu */
+/* ================= DESKTOP MENU ================= */
 .menu-desktop {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .menu-desktop a {
-    color: white;
-    text-decoration: none;
-    position: relative;
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
 }
 
 .menu-desktop a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: white;
-    transition: width 0.3s;
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
-.menu-desktop a:hover::after {
-    width: 100%;
+.menu-desktop a:hover::after { width: 100%; }
+
+.menu-mobile a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
-/* ================= HAMBURGER ================= */
+.menu-mobile a:hover::after { width: 100%; }
 
-.menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
+/* ================= LINKS AJUSTADOS AL TEXTO ================= */
+.menu-desktop a,
+.menu-mobile a {
+  display: inline-block;      /* ancho según el contenido */
+  width: auto;                /* no ocupar todo el contenedor */
+  align-self: flex-start;     /* evita que flex-column lo estire */
+  white-space: nowrap;        /* evita que haga wrap */
+  position: relative;         /* para el ::after */
+  text-decoration: none;
+  padding: 4px 8px;           /* opcional, ajusta según diseño */
+  color: var(--accent);
 }
 
-.menu-btn span {
-    width: 24px;
-    height: 1px;
-    background: white;
+/* ================= ANIMACIÓN DE LÍNEA INFERIOR ================= */
+.menu-desktop a::after,
+.menu-mobile a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.menu-desktop a:hover::after,
+.menu-mobile a:hover::after {
+  width: 100%; /* se ajusta al ancho real del texto */
+}
+
+/* ================= OPCIONAL: PADDING Y BACKGROUND ================= */
+.menu-desktop a,
+.menu-mobile a {
+  padding: 4px 8px;          /* ancho visual cómodo sin ocupar todo el div */
+  background: transparent;    /* si quieres cambiar color al hover, se puede */
+}
+
+.menu-desktop a:hover,
+.menu-mobile a:hover {
+  background: rgba(255,255,255,0.1); /* efecto visual sutil */
+}
+
+
+/* ================= UI ROOT (botón invencible) ================= */
+#ui-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+#ui-root .menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  height: 40px;
+
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+
+  pointer-events: auto;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#ui-root .menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.32s ease, opacity 0.22s linear;
 }
 
 /* ================= MOBILE MENU ================= */
-
 .menu-mobile {
-    position: fixed;
-    top: 0;
-    left: -260px;
-    width: 260px;
-    height: 100vh;
-    background: rgba(0,0,0,0.95);
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    transition: left 0.25s ease;
-    z-index: 1200;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--menu-width);
+  height: 100vh;
+  padding: calc(var(--navbar-h) + 20px) 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  background: var(--menu-bg);
+  backdrop-filter: blur(6px);
+
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(.2,.9,.3,1);
+
+  z-index: 2000;
 }
 
 .menu-mobile a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 18px;
 
-/* Overlay */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.25s;
-    z-index: 1100;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
 }
-
-/* ================= STATE ================= */
 
 body.menu-open .menu-mobile {
-    left: 0;
+  transform: translateX(0);
+}
+
+body.menu-open .menu-mobile a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ================= OVERLAY ================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay-bg);
+  backdrop-filter: blur(var(--blur-level));
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.25s ease;
+  z-index: 1500;
 }
 
 body.menu-open .overlay {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  padding-top: var(--navbar-h);
+}
+
+body.menu-open .content {
+  filter: blur(var(--blur-level));
+}
+
+/* ================= HAMBURGER → X ================= */
+body.menu-open #ui-root .menu-btn span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+body.menu-open #ui-root .menu-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open #ui-root .menu-btn span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ================= RESPONSIVE ================= */
-
-/* Móvil y tablets verticales */
-@media (max-width: 900px), (orientation: portrait) {
-    .menu-desktop {
-        display: none;
-    }
-
-    .menu-btn {
-        display: flex;
-    }
+@media (max-aspect-ratio: 4/3) {
+  .menu-desktop { display: none; }
+  #ui-root .menu-btn { display: flex; }
 }
 
-.menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-    z-index: 1300; /* por encima del overlay */
+/* ================= ACCESSIBILITY ================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
-
-.menu-btn span {
-    display: block;        /* ← ESTA ES LA CLAVE */
-    width: 24px;
-    height: 2px;
-    background: white;
-}
-
-.menu-btn {
-    pointer-events: auto;
-}
-
-.overlay {
-    z-index: 1100;
-}
-
-.menu-mobile {
-    z-index: 1200;
-}
-
