@@ -15,15 +15,12 @@ overlay.addEventListener("click", () => {
   menuBtn.setAttribute("aria-expanded", "false");
 });
 
-/* --- Opcional: clonar links del desktop al mobile si quieres coherencia --- */
-/* Ejecuta esto solo si quieres que los mismos links estén en ambos menús */
-(function cloneLinksToMobile(){
+(function cloneLinksToMobile() {
   const desktop = document.querySelector(".menu-desktop");
   const mobile = document.querySelector(".menu-mobile");
   if (desktop && mobile && mobile.children.length === 0) {
-    // clona todos los anchors del desktop
     const anchors = desktop.querySelectorAll("a");
-    anchors.forEach(a => {
+    anchors.forEach((a) => {
       const clone = a.cloneNode(true);
       mobile.appendChild(clone);
     });

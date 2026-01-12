@@ -1,30 +1,58 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LASU | Próximo lanzamiento</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <GlobalScripts />
-        <header>
-            <nav class="navbar" id="navbar">
-                <a href="index.html">
-                    <img src=LASU_logo.png alt="LASU Logo">
-                </a>
-                <div class="menu">
-                    <a href="https://lasu-aerospace.github.io/LRL/">LRL</a>
-                    <a href="https://github.com/lasu-aerospace">GitHub</a>
-                    <a href="launches.html">Lanzamientos</a>
-                    <a href="about.html">Sobre nosotros</a>
-                    <a href="contact.html">Contacto</a>
-                </div>
-            </nav>
-        </header>
-
-        <div>
-            <p class="box" style="margin-top: 60px">TLV-1 (Test Launch Vehicle 1) es un prototipo de vehículo de lanzamiento liviano, propulsado por un motor de pólvora y sin capacidad para colocar cargas útiles en órbita. El objetivo principal de la misión es validar la adquisición, el procesamiento y la transmisión de datos de aviónica para futuros prototipos. Todos ellos utilizarán la misma computadora de vuelo, Alnair Flight Computer Rev. 1 (AFCR1), seleccionada por su simplicidad y eficiencia operativa. La campaña incluirá la evaluación de parámetros aerodinámicos, físicos, químicos, mecánicos y electrónicos, con el fin de integrar mejoras tecnológicas en los siguientes desarrollos. Si bien aún no existe una fecha oficial de lanzamiento, se proyectan ventanas potenciales para el último cuartil de 2026.</p>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LASU | Siguiente Lanzamiento</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.png" />
+  </head>
+  <body>
+    <GlobalScripts />
+    <header class="header">
+      <nav class="navbar">
+        <a href="index.html" class="logo"
+          ><img src="LASU_logo.png" alt="LASU Logo" class="logo"
+        /></a>
+        <div class="menu-desktop">
+          <a href="#">Lanzamientos</a>
+          <a href="#">Contacto</a>
         </div>
-        <script src="script.js"></script>
-    </body>
+      </nav>
+    </header>
+    <!-- Menú móvil -->
+    <aside class="menu-mobile" id="menuMobile">
+      <a href="#">Lanzamientos</a>
+      <a href="#">Contacto</a>
+    </aside>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <!-- UI ROOT -->
+    <div id="ui-root">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <!-- Contenido -->
+    <div>
+      <p class="container">
+        TLV-1 (Test Launch Vehicle 1) es un prototipo de vehículo de lanzamiento
+        liviano, propulsado por un motor de pólvora y sin capacidad para colocar
+        cargas útiles en órbita. El objetivo principal de la misión es validar
+        la adquisición, el procesamiento y la transmisión de datos de aviónica
+        (telemetría). Utilizará la computadora de vuelo Alnair Flight Computer
+        Rev. 1 (AFCR1), diseñada para simplicidad y eficiencia operativa. La
+        campaña incluirá la evaluación de parámetros aerodinámicos, físicos,
+        químicos, mecánicos y electrónicos, con el fin de integrar mejoras
+        tecnológicas y mayor comprensión en los siguientes desarrollos. Si bien
+        aún no existe una fecha oficial de lanzamiento, se proyectan ventanas
+        potenciales para el último octeto de 2026.
+      </p>
+    </div>
+    <!-- Footer y scripts -->
+    <script src="scripts.js"></script>
+    <script src="overlay.js"></script>
+  </body>
 </html>
