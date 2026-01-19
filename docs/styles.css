@@ -1,9 +1,24 @@
 html {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   font-weight: 100;
   color: #e0e0e0;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  position: relative;
+  flex: 1;
+}
 
 /* ================= RESET ================= */
 * {
@@ -20,7 +35,7 @@ html {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -29,6 +44,12 @@ body {
   background: black;
   color: white;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: white;
 }
 
 /* ================= NAVBAR ================= */
@@ -405,13 +426,10 @@ body.menu-open #ui-root .menu-btn span:nth-child(3) {
   padding: 16px 24px;
   background-color: #0f0f0f;
   border-top: 1px solid #2a2a2a;
-  position: absolute;
   display: flex;
-  top: 100%;
   gap: 24px;
   justify-content: center;
   text-align: center;
-  z-index: 1000;
   color: white;
 }
 
@@ -428,16 +446,54 @@ body.menu-open #ui-root .menu-btn span:nth-child(3) {
 
 /* ================= ARTICLE ================= */
 .article {
-  max-width: 60%;
+  max-width: 50%;
+  position: relative;
   margin: 48px auto;
-  position: absolute;
+  text-align: justify;
   padding: 0 16px;
   font-weight: 200;
   font-size: 1rem;
-  line-height: 1.7;
   color: #e0e0e0;
 }
 
 .article p {
   margin-bottom: 1.2em;
+  line-height: 2.1;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.hero-content {
+  color: white;
+}
+
+/* ================= MEDIA ================= */
+.media-frame {
+  width: 100%;
+  max-width: 900px;
+  height: 80vh;
+  border: 1px solid #ccc;
+  margin: 2rem auto;
+  display: block;
+}
+
+.media-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
 }
